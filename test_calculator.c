@@ -61,6 +61,21 @@ void test_multiply_zero(void) {
     TEST_ASSERT_EQUAL(0,multiply(0,0)); //expect 0 * 0 = 0
 }
 
+//divide test cases
+void test_divide_positive_numbers(void){
+    TEST_ASSERT_EQUAL(2, divide(4,2)); //we expect 4/2=2
+}
+void test_divide_positive_numbers_and_negative_numbers(void){
+    TEST_ASSERT_EQUAL(-4, divide(8,-2)); //expect 8 / -2 = -4
+}
+void test_divide_negative_numbers(void) {
+    TEST_ASSERT_EQUAL(3, divide(-12,-4)); //expect -12 / -4 = 3
+}
+void test_divide_zero(void) {
+    TEST_ASSERT_EQUAL(0,divide(10, 0)); //expect 10 / 0 = 0
+    TEST_ASSERT_EQUAL(0,divide(0,0)); //expect 0 / 0 = 0
+}
+
 void test_add_overflow(void) {
     int result = add(INT_MAX,1); //should wrap arround or cause undefined behavior
     TEST_ASSERT_TRUE(result < 0); //this checks if overflow occured
@@ -90,6 +105,12 @@ int main (void) {
     RUN_TEST(test_multiply_positive_numbers_and_negative_numbers);
     RUN_TEST(test_multiply_negative_numbers);
     RUN_TEST(test_multiply_zero);
+
+    //run divide tests
+    RUN_TEST(test_divide_positive_numbers);
+    RUN_TEST(test_divide_negative_numbers);
+    RUN_TEST(test_divide_positive_numbers_and_negative_numbers);
+    RUN_TEST(test_divide_zero);
 
     RUN_TEST(test_add_overflow);
     RUN_TEST(test_add_underflow);
