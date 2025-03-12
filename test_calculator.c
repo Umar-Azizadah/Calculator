@@ -33,6 +33,16 @@ void test_add_zero(void) {
     TEST_ASSERT_EQUAL(0,add(0,0)); //expect 0 + 0 = 10
 }
 
+void test_add_overflow(void) {
+    int result = add(INT_MAX,1); //should wrap arround or cause undefined behavior
+    TEST_ASSERT_TRUE(result < 0); //this checks if overflow occured
+}
+
+void test_add_underflow(void) {
+    int result = add(INT_MIN,-1); 
+    TEST_ASSERT_TRUE(result > 0); //this checks if underflow occured
+}
+
 int main (void) {
     UNITY_BEGIN();
     RUN_TEST(test_add_positive_numbers);// run the rest function
