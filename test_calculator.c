@@ -35,19 +35,30 @@ void test_add_zero(void) {
 void test_subtract_positive_numbers(void){
     TEST_ASSERT_EQUAL(1, subtract(3,2)); //we expect 3-2=1
 }
-
 void test_subtract_positive_numbers_and_negative_numbers(void){
     TEST_ASSERT_EQUAL(9, subtract(5,-4)); //expect 5 - -4 = 9
 }
-
 void test_subtract_negative_numbers(void) {
     TEST_ASSERT_EQUAL(1, subtract(-3,-4)); //expect -3 - -4 = 1
 }
-
-
 void test_subtract_zero(void) {
     TEST_ASSERT_EQUAL(10,subtract(10, 0)); //expect 10 - 0 = 10
     TEST_ASSERT_EQUAL(0,subtract(0,0)); //expect 0 - 0 = 10
+}
+
+//multiply test functions 
+void test_multiply_positive_numbers(void){
+    TEST_ASSERT_EQUAL(6, multiply(3,2)); //we expect 3*2=6
+}
+void test_multiply_positive_numbers_and_negative_numbers(void){
+    TEST_ASSERT_EQUAL(-20, multiply(5,-4)); //expect 5 * -4 = -20
+}
+void test_multiply_negative_numbers(void) {
+    TEST_ASSERT_EQUAL(12, multiply(-3,-4)); //expect -3 * -4 = 12
+}
+void test_multiply_zero(void) {
+    TEST_ASSERT_EQUAL(0,mutliply(10, 0)); //expect 10 * 0 = 0
+    TEST_ASSERT_EQUAL(0,multiply(0,0)); //expect 0 * 0 = 0
 }
 
 void test_add_overflow(void) {
@@ -73,6 +84,11 @@ int main (void) {
     RUN_TEST(test_subtract_positive_numbers_and_negative_numbers);
     RUN_TEST(test_subtract_negative_numbers);
     RUN_TEST(test_subtract_zero);
+
+    //run multiply tests
+    RUN_TEST(test_multiply_positive_numbers);
+    RUN_TEST(test_multiply_positive_numbers_and_negative_numbers);
+    RUN_TEST()
 
     RUN_TEST(test_add_overflow);
     RUN_TEST(test_add_underflow);
