@@ -31,6 +31,24 @@ void test_add_zero(void) {
     TEST_ASSERT_EQUAL(0,add(0,0)); //expect 0 + 0 = 10
 }
 
+//subtract test functions 
+void test_subtract_positive_numbers(void){
+    TEST_ASSERT_EQUAL(1, subtract(3,2)); //we expect 3-2=1
+}
+
+void test_subtract_positive_numbers_and_negative_numbers(void){
+    TEST_ASSERT_EQUAL(9, subtract(5,-4)); //expect 5 - -4 = 9
+}
+
+void test_subtract_negative_numbers(void) {
+    TEST_ASSERT_EQUAL(1, subtract(-3,-4)); //expect -3 - -4 = 1
+}
+
+
+void test_subtract_zero(void) {
+    TEST_ASSERT_EQUAL(10,subtract(10, 0)); //expect 10 - 0 = 10
+    TEST_ASSERT_EQUAL(0,subtract(0,0)); //expect 0 - 0 = 10
+}
 
 void test_add_overflow(void) {
     int result = add(INT_MAX,1); //should wrap arround or cause undefined behavior
@@ -44,10 +62,18 @@ void test_add_underflow(void) {
 
 int main (void) {
     UNITY_BEGIN();
-    RUN_TEST(test_add_positive_numbers);// run the rest function
+    //run add tests
+    RUN_TEST(test_add_positive_numbers);
     RUN_TEST(test_add_positive_numbers_and_negative_numbers);
     RUN_TEST(test_add_negative_numbers);
     RUN_TEST(test_add_zero);
+
+    //run subtract tests
+    RUN_TEST(test_subtract_positive_numbers);
+    RUN_TEST(test_subtract_positive_numbers_and_negative_numbers);
+    RUN_TEST(test_subtract_negative_numbers);
+    RUN_TEST(test_subtract_zero);
+
     RUN_TEST(test_add_overflow);
     RUN_TEST(test_add_underflow);
 
