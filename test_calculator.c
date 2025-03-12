@@ -15,23 +15,22 @@ void tearDown(void) {
     //in this example, nothing is needed here
 }
 
+//add test functions
 void test_add_positive_numbers(void){
     TEST_ASSERT_EQUAL(5, add(2,3)); //we expect 2+3=5
 }
-
 void test_add_positive_numbers_and_negative_numbers(void){
     TEST_ASSERT_EQUAL(1, add(5,-4)); //expect 5 + -4 =1
 }
-
 void test_add_negative_numbers(void) {
     TEST_ASSERT_EQUAL(-7,add(-3,-4)); //expect -3 + -4 = -7
 }
-
 //NOTE we can do multiple validations in one test
 void test_add_zero(void) {
     TEST_ASSERT_EQUAL(10,add(10, 0)); //expect 10 + 0 = 10
     TEST_ASSERT_EQUAL(0,add(0,0)); //expect 0 + 0 = 10
 }
+
 
 void test_add_overflow(void) {
     int result = add(INT_MAX,1); //should wrap arround or cause undefined behavior
@@ -49,5 +48,8 @@ int main (void) {
     RUN_TEST(test_add_positive_numbers_and_negative_numbers);
     RUN_TEST(test_add_negative_numbers);
     RUN_TEST(test_add_zero);
+    RUN_TEST(test_add_overflow);
+    RUN_TEST(test_add_underflow);
+
     return UNITY_END();
 }
